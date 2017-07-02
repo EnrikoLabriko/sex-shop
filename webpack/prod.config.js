@@ -29,11 +29,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: [{
-          loader: 'babel-loader'
-        }],
-        exclude: /node_modules/
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'es2015', 'stage-0']
+          }
+        }]
       },
       {
         test: /\.styl$/,
