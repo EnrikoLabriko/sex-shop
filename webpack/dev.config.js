@@ -13,21 +13,21 @@ module.exports = {
   devtool: 'inline-source-map',
   context: sourcePath,
   entry: {
-    main: '../src/index.js'
+    main: '../src/index.js',
   },
   output: {
     filename: '[name].js',
     path: assetsPath,
-    publicPath: '/build/'
+    publicPath: '/build/',
   },
   performance: {
-    hints: false
+    hints: false,
   },
   devServer: {
     port: 3000,
     contentBase: assetsPath,
     compress: true,
-    hot: true
+    hot: true,
   },
   module: {
     rules: [
@@ -37,81 +37,81 @@ module.exports = {
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'es2015', 'stage-0']
-          }
-        }]
+            presets: ['react', 'es2015', 'stage-0'],
+          },
+        }],
       },
       {
         test: /\.styl$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              importLoaders: 2
-            }
+              importLoaders: 2,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
-            }
+            },
           },
           {
             loader: 'stylus-loader',
-          }
+          },
         ],
       },
       {
         test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'application/font-woff'
-        }
+          limit,
+          mimetype: 'application/font-woff',
+        },
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'application/octet-stream'
-        }
+          limit,
+          mimetype: 'application/octet-stream',
+        },
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'application/vnd.ms-fontobject'
-        }
+          limit,
+          mimetype: 'application/vnd.ms-fontobject',
+        },
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'image/svg+xml'
-        }
+          limit,
+          mimetype: 'image/svg+xml',
+        },
       },
-    ]
+    ],
   },
   resolve: {
     modules: [
       'src',
-      'node_modules'
+      'node_modules',
     ],
-    extensions: ['.json', '.js', '.styl']
+    extensions: ['.json', '.js', '.styl'],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Thinknetica project',
       filename: 'index.html',
-      template: '../src/template.html'
+      template: '../src/template.html',
     }),
   ],
 };

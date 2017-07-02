@@ -21,10 +21,10 @@ module.exports = {
     path: assetsPath,
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash].js',
-    publicPath: '/build/'
+    publicPath: '/build/',
   },
   performance: {
-    hints: false
+    hints: false,
   },
   module: {
     rules: [
@@ -34,9 +34,9 @@ module.exports = {
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'es2015', 'stage-0']
-          }
-        }]
+            presets: ['react', 'es2015', 'stage-0'],
+          },
+        }],
       },
       {
         test: /\.styl$/,
@@ -48,71 +48,71 @@ module.exports = {
               query: {
                 modules: true,
                 importLoaders: 3,
-                sourceMap: true
-              }
+                sourceMap: true,
+              },
             },
             {
-              loader: 'resolve-url-loader'
+              loader: 'resolve-url-loader',
             },
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true
-              }
+                sourceMap: true,
+              },
             },
             {
               loader: 'stylus-loader',
-            }
-          ]
-        })
+            },
+          ],
+        }),
       },
       {
         test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'application/font-woff'
-        }
+          limit,
+          mimetype: 'application/font-woff',
+        },
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'application/octet-stream'
-        }
+          limit,
+          mimetype: 'application/octet-stream',
+        },
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'application/vnd.ms-fontobject'
-        }
+          limit,
+          mimetype: 'application/vnd.ms-fontobject',
+        },
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-          limit: limit,
-          mimetype: 'image/svg+xml'
-        }
-      }
-    ]
+          limit,
+          mimetype: 'image/svg+xml',
+        },
+      },
+    ],
   },
   resolve: {
     modules: [
       'src',
-      'node_modules'
+      'node_modules',
     ],
-    extensions: ['.json', '.js', '.styl']
+    extensions: ['.json', '.js', '.styl'],
   },
   plugins: [
     new CleanPlugin([assetsPath], { root: projectRootPath }),
 
     new ExtractTextPlugin({
       filename: '[name]-[chunkhash].css',
-      allChunks: true
+      allChunks: true,
     }),
 
     // // ignore dev config
@@ -120,22 +120,22 @@ module.exports = {
 
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
 
     new HtmlWebpackPlugin({
       title: 'Thinknetica project',
       filename: 'index.html',
-      template: '../src/template.html'
+      template: '../src/template.html',
     }),
 
     new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.(js|html|css)$/,
       threshold: limit,
-      minRatio: 0.8
+      minRatio: 0.8,
     }),
-  ]
+  ],
 };
