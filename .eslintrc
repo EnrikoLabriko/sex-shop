@@ -1,0 +1,73 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "rules": {
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-filename-extension": "off",
+    "react/sort-prop-types": "error",
+    "react/no-unescaped-entities": "off",
+    "import/default": "off",
+    "import/extensions": ["off"],
+    "import/no-duplicates": "off",
+    "import/named": "off",
+    "import/namespace": "off",
+    "import/no-unresolved": "off",
+    "import/no-named-as-default": "off",
+    "import/imports-first": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "comma-dangle": ["error", "always-multiline"],
+    "operator-linebreak": ["error", "after"],
+    "consistent-return": "off",
+    "no-param-reassign": "off",
+    "prefer-template": "warn",
+    "global-require": "off",
+    "no-case-declarations": "off",
+    "no-underscore-dangle": "off",
+    "arrow-parens": "off",
+    "no-bitwise": "off",
+    "no-plusplus": "off",
+    "no-console": "off",
+    "jsx-a11y/img-has-alt": "off", // https://github.com/Shopify/javascript/issues/51
+    "no-alert": "off",
+    "no-shadow": "off",
+    "no-debugger": "warn",
+    "max-len": ["error", 120],
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true}],
+    "key-spacing": ["error", { "mode": "minimum"}]
+  },
+  "plugins": [
+    "react",
+    "import",
+    "jsx-a11y"
+  ],
+  "settings": {
+    "import/resolve": {
+      "moduleDirectory": [
+        "node_modules",
+        "src"
+      ]
+    }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {
+    "__DEVELOPMENT__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DISABLE_SSR__": true,
+    "__DEVTOOLS__": true,
+    "__DLLS__": true,
+    "socket": true,
+    "webpackIsomorphicTools": true
+  }
+}
