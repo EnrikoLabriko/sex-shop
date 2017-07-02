@@ -5,7 +5,7 @@ import Welcome from './Welcome';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
-    <Welcome showApp={linkTo('Button')}/>
+    <Welcome showApp={linkTo('Button')} />
   ));
 
 storiesOf('Button', module)
@@ -13,5 +13,5 @@ storiesOf('Button', module)
     <Button onClick={action('clicked')}>Hello Button</Button>
   ))
   .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
+    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button> // eslint-disable-line
   ));

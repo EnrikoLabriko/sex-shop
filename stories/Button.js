@@ -24,4 +24,8 @@ Button.propTypes = {
   onClick: React.PropTypes.func,
 };
 
+Button.defaultProps = {
+  onClick: null,
+};
+
 export default Button;
