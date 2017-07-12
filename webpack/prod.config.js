@@ -115,9 +115,6 @@ module.exports = {
       allChunks: true,
     }),
 
-    // // ignore dev config
-    // new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
-
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
